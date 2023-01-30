@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 ene 2023 15:43:24 by Hibernate Tools 3.5.3.Final -->
+<hibernate-mapping>
+    <class name="clases.Empleado" table="empleado" catalog="empleados23">
+        <id name="numEmpleado" type="int">
+            <column name="numEmpleado" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="departamento" class="clases.Departamento" fetch="select">
+            <column name="numDepto" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="10" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="25" />
+        </property>
+        <property name="fechaAlta" type="date">
+            <column name="fechaAlta" length="10" />
+        </property>
+        <property name="salario" type="big_decimal">
+            <column name="salario" precision="6" />
+        </property>
+    </class>
+</hibernate-mapping>
